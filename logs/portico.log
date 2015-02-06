@@ -1,0 +1,66 @@
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [SwingWorker-pool-2-thread-3] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [SwingWorker-pool-2-thread-3] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+ERROR [SwingWorker-pool-2-thread-3] portico.lrc: org.portico.lrc.compat.JFederateNotExecutionMember: 
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [SwingWorker-pool-2-thread-4] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [SwingWorker-pool-2-thread-4] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+ERROR [SwingWorker-pool-2-thread-5] portico.lrc: org.portico.lrc.compat.JFederateNotExecutionMember: 
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+ERROR [SwingWorker-pool-2-thread-1] portico.lrc.jgroups: FAILURE createFederation: already exists, name=FSS
+ERROR [SwingWorker-pool-2-thread-1] portico.lrc: org.portico.lrc.compat.JFederationExecutionAlreadyExists: federation exists: FSS
+WARN  [SwingWorker-pool-2-thread-4] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [SwingWorker-pool-2-thread-4] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+ERROR [SwingWorker-pool-2-thread-4] portico.lrc: org.portico.lrc.compat.JFederatesCurrentlyJoined: federates still joined: [1]
+ERROR [Thread-3] portico.lrc: FAILURE Exception encountered while processing incoming message: null
+java.lang.NullPointerException
+	at org.portico.lrc.services.time.data.TimeManager.disableConstrained(TimeManager.java:329)
+	at org.portico.lrc.services.time.handlers.incoming.DisableConstrainedIncomingHandler.process(DisableConstrainedIncomingHandler.java:59)
+	at org.portico.utils.messaging.MessageSink.process(MessageSink.java:187)
+	at org.portico.lrc.LRC.tickProcess(LRC.java:678)
+	at org.portico.lrc.LRC.access$200(LRC.java:106)
+	at org.portico.lrc.LRC$ImmediateCallbackDispatcher.run(LRC.java:818)
+ERROR [Thread-3] portico.lrc: FAILURE Exception encountered while processing incoming message: null
+java.lang.NullPointerException
+	at org.portico.lrc.services.time.data.TimeManager.disableRegulating(TimeManager.java:265)
+	at org.portico.lrc.services.time.handlers.incoming.DisableRegulationIncomingHandler.process(DisableRegulationIncomingHandler.java:57)
+	at org.portico.utils.messaging.MessageSink.process(MessageSink.java:187)
+	at org.portico.lrc.LRC.tickProcess(LRC.java:678)
+	at org.portico.lrc.LRC.access$200(LRC.java:106)
+	at org.portico.lrc.LRC$ImmediateCallbackDispatcher.run(LRC.java:818)
+ERROR [SwingWorker-pool-2-thread-5] portico.lrc: org.portico.lrc.compat.JFederateNotExecutionMember: 
+WARN  [SwingWorker-pool-2-thread-4] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [SwingWorker-pool-2-thread-4] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+ERROR [SwingWorker-pool-2-thread-5] portico.lrc: org.portico.lrc.compat.JFederateNotExecutionMember: 
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [main] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+ERROR [SwingWorker-pool-2-thread-1] portico.lrc.jgroups: FAILURE createFederation: already exists, name=FSS
+ERROR [SwingWorker-pool-2-thread-1] portico.lrc: org.portico.lrc.compat.JFederationExecutionAlreadyExists: federation exists: FSS
+WARN  [SwingWorker-pool-2-thread-3] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [SwingWorker-pool-2-thread-3] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+ERROR [SwingWorker-pool-2-thread-3] portico.lrc: org.portico.lrc.compat.JFederatesCurrentlyJoined: federates still joined: [1]
+ERROR [Thread-3] portico.lrc: FAILURE Exception encountered while processing incoming message: null
+java.lang.NullPointerException
+	at org.portico.lrc.services.time.data.TimeManager.disableConstrained(TimeManager.java:329)
+	at org.portico.lrc.services.time.handlers.incoming.DisableConstrainedIncomingHandler.process(DisableConstrainedIncomingHandler.java:59)
+	at org.portico.utils.messaging.MessageSink.process(MessageSink.java:187)
+	at org.portico.lrc.LRC.tickProcess(LRC.java:678)
+	at org.portico.lrc.LRC.access$200(LRC.java:106)
+	at org.portico.lrc.LRC$ImmediateCallbackDispatcher.run(LRC.java:818)
+ERROR [Thread-3] portico.lrc: FAILURE Exception encountered while processing incoming message: null
+java.lang.NullPointerException
+	at org.portico.lrc.services.time.data.TimeManager.disableRegulating(TimeManager.java:265)
+	at org.portico.lrc.services.time.handlers.incoming.DisableRegulationIncomingHandler.process(DisableRegulationIncomingHandler.java:57)
+	at org.portico.utils.messaging.MessageSink.process(MessageSink.java:187)
+	at org.portico.lrc.LRC.tickProcess(LRC.java:678)
+	at org.portico.lrc.LRC.access$200(LRC.java:106)
+	at org.portico.lrc.LRC$ImmediateCallbackDispatcher.run(LRC.java:818)
+WARN  [SwingWorker-pool-2-thread-3] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+WARN  [SwingWorker-pool-2-thread-3] portico.lrc: MOM support is currently unsupported in IEEE-1516e federations.
+ERROR [SwingWorker-pool-2-thread-3] portico.lrc: org.portico.lrc.compat.JFederateNotExecutionMember: 

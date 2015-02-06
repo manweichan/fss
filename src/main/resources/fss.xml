@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<objectModel xsi:schemaLocation="http://standards.ieee.org/IEEE1516-2010 http://standards.ieee.org/downloads/1516/1516.2-2010/IEEE1516-DIF-2010.xsd" xmlns="http://standards.ieee.org/IEEE1516-2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelIdentification>
+        <name>Federated Satellite System (FSS) Multiplayer Interactive Simulation</name>
+        <type>FOM</type>
+        <version>0.2</version>
+        <modificationDate>2013-10-07</modificationDate>
+        <securityClassification>unclassified</securityClassification>
+        <purpose></purpose>
+        <applicationDomain>Engineering</applicationDomain>
+        <description>Defines object and interaction classes in support of FSS simulation.</description>
+        <useLimitation></useLimitation>
+        <poc>
+            <pocType>Primary author</pocType>
+            <pocName>Paul T. Grogan</pocName>
+            <pocOrg>M.I.T.</pocOrg>
+            <pocTelephone>+1-617-388-2427</pocTelephone>
+            <pocEmail>ptgrogan@mit.edu</pocEmail>
+        </poc>
+        <other></other>
+    </modelIdentification>
+    <objects>
+        <objectClass>
+            <name>HLAobjectRoot</name>
+            <objectClass>
+                <name>Element</name>
+                <sharing>Subscribe</sharing>
+                <semantics></semantics>
+                <attribute>
+                    <name>Name</name>
+                    <dataType>HLAunicodeString</dataType>
+                    <updateType>Static</updateType>
+                    <updateCondition></updateCondition>
+                    <ownership>NoTransfer</ownership>
+                    <sharing>PublishSubscribe</sharing>
+                    <dimensions/>
+                    <transportation>HLAreliable</transportation>
+                    <order>Receive</order>
+                    <semantics>Unique name of the element.</semantics>
+                </attribute>
+                <attribute>
+                    <name>Frame</name>
+                    <dataType>ReferenceFrame</dataType>
+                    <updateType>Conditional</updateType>
+                    <updateCondition>On reference frame change</updateCondition>
+                    <ownership>NoTransfer</ownership>
+                    <sharing>PublishSubscribe</sharing>
+                    <dimensions/>
+                    <transportation>HLAreliable</transportation>
+                    <order>TimeStamp</order>
+                    <semantics>Reference frame of the element coordinates.</semantics>
+                </attribute>
+                <attribute>
+                    <name>Position</name>
+                    <dataType>CartesianVector</dataType>
+                    <updateType>Conditional</updateType>
+                    <updateCondition>On position change</updateCondition>
+                    <ownership>NoTransfer</ownership>
+                    <sharing>PublishSubscribe</sharing>
+                    <dimensions/>
+                    <transportation>HLAreliable</transportation>
+                    <order>TimeStamp</order>
+                    <semantics>Position of the element in its reference frame.</semantics>
+                </attribute>
+                <attribute>
+                    <name>Velocity</name>
+                    <dataType>CartesianVector</dataType>
+                    <updateType>Conditional</updateType>
+                    <updateCondition>On velocity change</updateCondition>
+                    <ownership>NoTransfer</ownership>
+                    <sharing>PublishSubscribe</sharing>
+                    <dimensions/>
+                    <transportation>HLAreliable</transportation>
+                    <order>TimeStamp</order>
+                    <semantics>Velocity of the element in its reference frame.</semantics>
+                </attribute>
+                <objectClass>
+                    <name>OrbitalElement</name>
+                    <sharing>PublishSubscribe</sharing>
+                    <semantics></semantics>
+                    <attribute>
+                        <name>Eccentricity</name>
+                        <dataType>HLAfloat64BE</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On orbital elements change.</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Eccentricity of the element orbit.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>SemimajorAxis</name>
+                        <dataType>HLAfloat64BE</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On orbital elements change.</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Semimajor axis of the element orbit, measured as the sum of periapsis and apoapsis distances in meters divided by two.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>Inclination</name>
+                        <dataType>HLAfloat64BE</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On orbital elements change.</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Inclination of the element orbit with respect to the reference plane, measured in degrees.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>LongitudeOfAscendingNode</name>
+                        <dataType>HLAfloat64BE</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On orbital elements change.</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Longitude of the ascending node of the element orbit from the vernal point of the reference plane, measured in degrees.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>ArgumentOfPeriapsis</name>
+                        <dataType>HLAfloat64BE</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On orbital elements change.</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Argument of periapsis of the element orbit, measured in degrees from the ascending node.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>MeanAnomaly</name>
+                        <dataType>HLAfloat64BE</dataType>
+                        <updateType>Periodic</updateType>
+                        <updateCondition>On every time step</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Mean anomaly of the orbital element.</semantics>
+                    </attribute>
+                </objectClass>
+                <objectClass>
+                    <name>SurfaceElement</name>
+                    <sharing>PublishSubscribe</sharing>
+                    <semantics></semantics>
+                    <attribute>
+                        <name>Latitude</name>
+                        <dataType>HLAfloat64BE</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On latitude change</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Latitude of surface element, measured in degrees north of the equator.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>Longitude</name>
+                        <dataType>HLAfloat64BE</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On longitude change</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Longitude of the surface element, measured in degrees east of the prime meridian.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>Altitude</name>
+                        <dataType>HLAfloat64BE</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On elevation change</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Elevation of the surface element, measured in meters above sea level.</semantics>
+                    </attribute>
+                </objectClass>
+            </objectClass>
+            <objectClass>
+                <name>RadioComponent</name>
+                <sharing>Neither</sharing>
+                <semantics></semantics>
+                <attribute>
+                    <name>Name</name>
+                    <dataType>HLAunicodeString</dataType>
+                    <updateType>Static</updateType>
+                    <updateCondition></updateCondition>
+                    <ownership>NoTransfer</ownership>
+                    <sharing>PublishSubscribe</sharing>
+                    <dimensions/>
+                    <transportation>HLAreliable</transportation>
+                    <order>Receive</order>
+                    <semantics>Name of the radio component.</semantics>
+                </attribute>
+                <attribute>
+                    <name>Element</name>
+                    <dataType>HLAunicodeString</dataType>
+                    <updateType>Conditional</updateType>
+                    <updateCondition>On radio owner change.</updateCondition>
+                    <ownership>NoTransfer</ownership>
+                    <sharing>PublishSubscribe</sharing>
+                    <dimensions/>
+                    <transportation>HLAreliable</transportation>
+                    <order>TimeStamp</order>
+                    <semantics>Name of the element controlling the radio component.</semantics>
+                </attribute>
+                <objectClass>
+                    <name>Transmitter</name>
+                    <sharing>PublishSubscribe</sharing>
+                    <semantics></semantics>
+                    <attribute>
+                        <name>Type</name>
+                        <dataType>HLAunicodeString</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition></updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Type of the transmitter.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>State</name>
+                        <dataType>HLAunicodeString</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On state change.</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Operational state of the transmitter.</semantics>
+                    </attribute>
+                </objectClass>
+                <objectClass>
+                    <name>Receiver</name>
+                    <sharing>PublishSubscribe</sharing>
+                    <semantics></semantics>
+                    <attribute>
+                        <name>Type</name>
+                        <dataType>HLAunicodeString</dataType>
+                        <updateType>Static</updateType>
+                        <updateCondition></updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Type of the receiver.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>State</name>
+                        <dataType>HLAunicodeString</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On state change.</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>TimeStamp</order>
+                        <semantics>Operational state of the receiver.</semantics>
+                    </attribute>
+                    <attribute>
+                        <name>Transmitter</name>
+                        <dataType>HLAunicodeString</dataType>
+                        <updateType>Conditional</updateType>
+                        <updateCondition>On transmitter change.</updateCondition>
+                        <ownership>NoTransfer</ownership>
+                        <sharing>PublishSubscribe</sharing>
+                        <dimensions/>
+                        <transportation>HLAreliable</transportation>
+                        <order>Receive</order>
+                        <semantics>Name of the associated transmitter.</semantics>
+                    </attribute>
+                </objectClass>
+            </objectClass>
+        </objectClass>
+    </objects>
+    <interactions>
+        <interactionClass>
+            <name>HLAinteractionRoot</name>
+         	<sharing>Neither</sharing>
+         	<transportation>HLAreliable</transportation>
+         	<order>TimeStamp</order>
+            <interactionClass>
+                <name>Signal</name>
+                <sharing>PublishSubscribe</sharing>
+                <dimensions/>
+                <transportation>HLAreliable</transportation>
+                <order>TimeStamp</order>
+                <semantics></semantics>
+                <parameter>
+                    <name>Element</name>
+                    <dataType>HLAunicodeString</dataType>
+                    <semantics>Name of the sending element.</semantics>
+                </parameter>
+                <parameter>
+                    <name>Transmitter</name>
+                    <dataType>HLAunicodeString</dataType>
+                    <semantics>Name of the associated transmitter.</semantics>
+                </parameter>
+                <parameter>
+                    <name>Type</name>
+                    <dataType>HLAunicodeString</dataType>
+                    <semantics>Type of the signal.</semantics>
+                </parameter>
+                <parameter>
+                    <name>Content</name>
+                    <dataType>HLAunicodeString</dataType>
+                    <semantics>Content of the message abstracted to a string.</semantics>
+                </parameter>
+            </interactionClass>
+        </interactionClass>
+    </interactions>
+    <time>
+        <timeStamp>
+            <dataType>HLAfloat64Time</dataType>
+            <semantics></semantics>
+        </timeStamp>
+        <lookahead>
+            <dataType>HLAfloat64Time</dataType>
+            <semantics></semantics>
+        </lookahead>
+    </time>
+    <switches>
+        <autoProvide isEnabled="true"/>
+        <conveyRegionDesignatorSets isEnabled="false"/>
+        <conveyProducingFederate isEnabled="false"/>
+        <attributeScopeAdvisory isEnabled="false"/>
+        <attributeRelevanceAdvisory isEnabled="false"/>
+        <objectClassRelevanceAdvisory isEnabled="false"/>
+        <interactionRelevanceAdvisory isEnabled="false"/>
+        <serviceReporting isEnabled="false"/>
+        <exceptionReporting isEnabled="false"/>
+        <delaySubscriptionEvaluation isEnabled="false"/>
+        <automaticResignAction resignAction="CancelThenDeleteThenDivest"/>
+    </switches>
+    <dataTypes>
+        <simpleDataTypes/>
+        <enumeratedDataTypes>
+            <enumeratedData>
+                <name>ReferenceFrame</name>
+                <representation>HLAinteger32BE</representation>
+                <semantics>Enumeration of several commonly-used reference frames using the Orekit FramesFactory library. TE: Tidal Effects.</semantics>
+                <enumerator>
+                    <name>UNKNOWN</name>
+                    <value>0</value>
+                </enumerator>
+                <enumerator>
+                    <name>EME2000</name>
+                    <value>1</value>
+                </enumerator>
+                <enumerator>
+                    <name>ITRF2008</name>
+                    <value>2</value>
+                </enumerator>
+                <enumerator>
+                    <name>ITRF2008_TE</name>
+                    <value>3</value>
+                </enumerator>
+            </enumeratedData>
+        </enumeratedDataTypes>
+        <arrayDataTypes>
+            <arrayData>
+                <name>CartesianVector</name>
+                <dataType>HLAfloat64BE</dataType>
+                <cardinality>3</cardinality>
+                <encoding>HLAfixedArray</encoding>
+                <semantics>A Cartesian vector with x, y, and z components.</semantics>
+            </arrayData>
+        </arrayDataTypes>
+        <fixedRecordDataTypes/>
+        <variantRecordDataTypes/>
+    </dataTypes>
+    <notes/>
+</objectModel>

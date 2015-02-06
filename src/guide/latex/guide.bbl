@@ -1,0 +1,60 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{grogan13}{inproceedings}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Grogan}{G.}%
+     {Paul~T.}{P.~T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Golkar}{G.}%
+     {Alessandro}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shirasaka}{S.}%
+     {Seiko}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {{de Weck}}{d.}%
+     {Olivier~L.}{O.~L.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GPT+1}
+  \strng{fullhash}{GPTGASSdOL1}
+  \field{labelyear}{2014}
+  \field{sortinit}{G}
+  \field{booktitle}{2014 IEEE Aerospace Conference}
+  \field{number}{Paper \#2163}
+  \field{title}{Multi-stakeholder Interative Simulation for Federated Satellite
+  Systems}
+  \list{location}{1}{%
+    {Big Sky, Montana}%
+  }
+  \field{year}{2014}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
