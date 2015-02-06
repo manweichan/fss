@@ -90,8 +90,8 @@ public class VisualizationFederate extends DefaultFederate {
 		federate.getConnection().setFederateType("Visualization");
 		federate.getConnection().setFederationName("FSS");
 		federate.getConnection().setFomPath(
-				new File(VisualizationFederate.class.getResource(
-						"/fss.xml").toURI()).getAbsolutePath());
+				new File(federate.getClass().getClassLoader().getResource(
+						"edu/mit/fss/hla/fss.xml").toURI()).getAbsolutePath());
 		federate.getConnection().setOfflineMode(false);
 		federate.connect();
 	}

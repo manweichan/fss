@@ -82,7 +82,8 @@ public class TerraSarX extends DefaultFederate {
 		try {
 			logger.debug("Loading TLE data from file.");
 			BufferedReader br = new BufferedReader(new InputStreamReader(
-					TerraSarX.class.getResourceAsStream("/data.tle")));
+					federate.getClass().getClassLoader().getResourceAsStream(
+							"edu/mit/fss/examples/data.tle")));
 			
 			final SpaceSystem system;
 
@@ -133,8 +134,8 @@ public class TerraSarX extends DefaultFederate {
 		federate.getConnection().setFederateType("FSS Consumer");
 		federate.getConnection().setFederationName("FSS");
 		federate.getConnection().setFomPath(
-				new File(TerraSarX.class.getResource(
-						"/fss.xml").toURI()).getAbsolutePath());
+				new File(federate.getClass().getClassLoader().getResource(
+						"edu/mit/fss/hla/fss.xml").toURI()).getAbsolutePath());
 		federate.getConnection().setOfflineMode(false);
 		federate.connect();
 

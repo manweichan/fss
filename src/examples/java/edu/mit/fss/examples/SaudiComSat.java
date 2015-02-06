@@ -88,7 +88,8 @@ public class SaudiComSat extends DefaultFederate {
 				"SAUDICOMSAT 6", "SAUDICOMSAT 7")) {
 			try {
 				BufferedReader br = new BufferedReader(new InputStreamReader(
-						SaudiComSat.class.getResourceAsStream("/data.tle")));
+						federate.getClass().getClassLoader().getResourceAsStream(
+								"edu/mit/fss/examples/data.tle")));
 				
 				final SpaceSystem system;
 				
@@ -144,8 +145,8 @@ public class SaudiComSat extends DefaultFederate {
 		federate.getConnection().setFederateType("FSS Consumer");
 		federate.getConnection().setFederationName("FSS");
 		federate.getConnection().setFomPath(
-				new File(SaudiComSat.class.getResource(
-						"/fss.xml").toURI()).getAbsolutePath());
+				new File(federate.getClass().getClassLoader().getResource(
+						"edu/mit/fss/hla/fss.xml").toURI()).getAbsolutePath());
 		federate.getConnection().setOfflineMode(false);
 		federate.connect();
 	}

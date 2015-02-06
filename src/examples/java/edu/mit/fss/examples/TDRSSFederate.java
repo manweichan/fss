@@ -91,7 +91,8 @@ public class TDRSSFederate extends DefaultFederate {
 				"TDRS 7", "TDRS 8", "TDRS 9", "TDRS 10", "TDRS 11")) {
 			try {
 				BufferedReader br = new BufferedReader(new InputStreamReader(
-						TDRSSFederate.class.getResourceAsStream("/data.tle")));
+						federate.getClass().getClassLoader().getResourceAsStream(
+								"edu/mit/fss/examples/data.tle")));
 				
 				while(br.ready()) {
 					if(br.readLine().matches(".*"+satName+".*")) {
@@ -173,8 +174,8 @@ public class TDRSSFederate extends DefaultFederate {
 		federate.getConnection().setFederateType("FSS Supplier");
 		federate.getConnection().setFederationName("FSS");
 		federate.getConnection().setFomPath(
-				new File(TDRSSFederate.class.getResource(
-						"/fss.xml").toURI()).getAbsolutePath());
+				new File(federate.getClass().getClassLoader().getResource(
+						"edu/mit/fss/hla/fss.xml").toURI()).getAbsolutePath());
 		federate.getConnection().setOfflineMode(false);
 		federate.connect();
 	}

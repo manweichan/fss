@@ -88,7 +88,8 @@ public class ISSFederate extends DefaultFederate {
 		try {
 			logger.debug("Loading TLE data from file.");
 			BufferedReader br = new BufferedReader(new InputStreamReader(
-					ISSFederate.class.getResourceAsStream("/data.tle")));
+					federate.getClass().getClassLoader().getResourceAsStream(
+							"edu/mit/fss/examples/data.tle")));
 			
 			final SpaceSystem satellite;
 			final SurfaceSystem station1, station2, station3;
@@ -167,8 +168,8 @@ public class ISSFederate extends DefaultFederate {
 		federate.getConnection().setFederateType("FSS Supplier");
 		federate.getConnection().setFederationName("FSS");
 		federate.getConnection().setFomPath(
-				new File(ISSFederate.class.getResource(
-						"/fss.xml").toURI()).getAbsolutePath());
+				new File(federate.getClass().getClassLoader().getResource(
+						"edu/mit/fss/hla/fss.xml").toURI()).getAbsolutePath());
 		federate.getConnection().setOfflineMode(false);
 		federate.connect();
 
