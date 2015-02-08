@@ -124,10 +124,10 @@ public class DefaultAmbassador extends NullFederateAmbassador implements FSSamba
 	private final Map<SimObject, HLAobject> localObjects = 
 			Collections.synchronizedMap(
 					new HashMap<SimObject, HLAobject>());
-	// boolean for evoked callbacks
-	private final boolean isEvoked;
+	// identifies RTI
+	private final String rtiName;
 	// timer for evoked callbacks
-	private Timer timer;
+	private Timer timer = null;
 	
 	/**
 	 * Instantiates a new default ambassador using the 
@@ -149,7 +149,7 @@ public class DefaultAmbassador extends NullFederateAmbassador implements FSSamba
 	 * @throws RTIexception the RTI exception
 	 */
 	public DefaultAmbassador(String rtiName) throws RTIexception {
-		this.isEvoked = rtiName.equals(OHLA_RTI);
+		this.rtiName = rtiName;
 
 		logger.trace("Getting the RTI factory.");
 		RtiFactory rtiFactory = RtiFactoryFactory.getRtiFactory(rtiName);
@@ -207,15 +207,17 @@ public class DefaultAmbassador extends NullFederateAmbassador implements FSSamba
 	@Override
 	public void connect() {
 		logger.debug("Connecting to the RTI.");
-		try {
-			rtiAmbassador.connect(this, isEvoked?CallbackModel.HLA_EVOKED:CallbackModel.HLA_IMMEDIATE);
-			logger.info("Connected to the RTI.");
-			connection.setConnected(true);
-		} catch(AlreadyConnected ignored) {
-		} catch (RTIexception e) {
-			logger.error(e);
-		}
-		if(isEvoked) {
+
+		if(rtiName.equals(OHLA_RTI)) {
+			try {
+				rtiAmbassador.connect(this, 
+						CallbackModel.HLA_EVOKED,
+						"edu/mit/fss/hla/ohla-lrc.properties");
+			} catch(AlreadyConnected ignored) {
+			} catch (RTIexception e) {
+				e.printStackTrace();
+				logger.error(e);
+			}
 			logger.debug("Creating and starting callback-evoking timer.");
 			if(timer != null) {
 				timer.cancel();
@@ -233,7 +235,18 @@ public class DefaultAmbassador extends NullFederateAmbassador implements FSSamba
 					}
 				}
 			}, 0, 100);
+		} else if(rtiName.equals(PORTICO_RTI)) {
+			try {
+				rtiAmbassador.connect(this, 
+						CallbackModel.HLA_IMMEDIATE);
+			} catch(AlreadyConnected ignored) {
+			} catch (RTIexception e) {
+				e.printStackTrace();
+				logger.error(e);
+			}
 		}
+		logger.info("Connected to the RTI.");
+		connection.setConnected(true);
 	}
 
 	/* (non-Javadoc)
@@ -910,7 +923,7 @@ public class DefaultAmbassador extends NullFederateAmbassador implements FSSamba
 	public void terminate() {
 		logger.debug("Terminating federation execution.");
 		
-		if(isEvoked) {
+		if(timer != null) {
 			logger.debug("Cancelling callback-evoking timer.");
 			timer.cancel();
 		}
