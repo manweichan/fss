@@ -1,6 +1,6 @@
 \documentclass[]{article}
 
-\title{FSS Simulation Toolkit v0.1 \\ User's Guide}
+\title{FSS Simulation Toolkit \\ User's Guide}
 \author{Paul T. Grogan\footnote{ptgrogan@mit.edu}}
 \date{Revised \today}
 
@@ -69,6 +69,12 @@
 
 \begin{document}
 \maketitle
+\section*{Change Log}
+\begin{itemize}
+\item v0.2---Feb. 8, 2015: Updated to match organizational changes in GitHub commit. Updated dependent libraries: Worldwind version 2.0.0, Portico version 2.0.1, Open HLA version 0.6.1, JFreechart 1.0., Apache Commons Math version 3.4.1.
+\item v0.1---Apr. 3, 2014: Initial version.
+\end{itemize}
+
 
 \section{Introduction}
 
@@ -103,52 +109,87 @@ This section describes how to download and configure the toolkit to run the exam
 As of this time there is no installer script for the toolkit. Instead, it is used within an integrated development environment (IDE) to help manage dependent libraries. There are several excellent Java IDEs which could alternatively be used to develop applications using the toolkit, however this author is most familiar with Eclipse.
 
 \begin{enumerate}
+\item Download and install the Git client: \url{https://help.github.com/articles/set-up-git/}
 \item Download and install the Eclipse IDE:
 \begin{enumerate}
 \item Download the Eclipse IDE for Java: \\ \url{http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/}
 \item Extract the .zip file to a desired file location (there is no installer).
 \item Run the \texttt{eclipse.exe} executable and choose a local workspace location.
 \end{enumerate}
-\item Install the Subclipse extension for integrated SVN access:
+%\item Install the Subclipse extension for integrated SVN access:
+%\begin{enumerate}
+%\item Select ``Help $>$ Eclipse Marketplace...'' from the Eclipse menu.
+%\item Search for ``Subclipse'' and click ``Install'' for a match (version Subclipse 1.10.3 as of writing).
+%\item Select all features, click ``Confirm,'' and accept the license agreement to install.
+%\item Restart Eclipse to complete installation.
+%\end{enumerate}
+%\item Checkout the FSS toolkit:
+%\begin{enumerate}
+%\item Select ``File $>$ New $>$ Other'' from the Eclipse menu.
+%\item Expand the ``SVN'' folder, select ``Checkout Projects from SVN'' and click ``Next'' to continue.
+%\item Select ``Create a new repository location'' and click ``Next'' to continue.
+%\item Enter the URL \url{svn://ptgrogan.scripts.mit.edu/fss/} and click ``Next'' to continue.
+%\item Select the \texttt{trunk} directory and click ``Finish'' to continue.
+%\item Expand the ``Java'' folder, select ``Java Project'' and click ``Next'' to continue.
+%\item Give the project a name, change other options (if desired, note: Java SE 7 is the minimum version required), and click ``Finish'' to download the source files.
+\item Install the EGit extension for integrated Git access:
 \begin{enumerate}
 \item Select ``Help $>$ Eclipse Marketplace...'' from the Eclipse menu.
-\item Search for ``Subclipse'' and click ``Install'' for a match (version Subclipse 1.10.3 as of writing).
-\item Select all features, click ``Confirm,'' and accept the license agreement to install.
+\item Search for ``EGit'' and click ``Install'' for a match (version EGit 3.6.2 as of writing).
+\item Select features, click ``Confirm,'' and accept the license agreement to install.
 \item Restart Eclipse to complete installation.
 \end{enumerate}
-\item Checkout the FSS toolkit:
+\item Clone the FSS toolkit:
 \begin{enumerate}
-\item Select ``File $>$ New $>$ Other'' from the Eclipse menu.
-\item Expand the ``SVN'' folder, select ``Checkout Projects from SVN'' and click ``Next'' to continue.
-\item Select ``Create a new repository location'' and click ``Next'' to continue.
-\item Enter the URL \url{svn://ptgrogan.scripts.mit.edu/fss/} and click ``Next'' to continue.
-\item Select the \texttt{trunk} directory and click ``Finish'' to continue.
+\item Select ``File $>$ Import $>$ Other'' from the Eclipse menu.
+\item Expand the ``Git'' folder, select ``Projects from Git'' and click ``Next'' to continue.
+\item Select ``Clone URI'' and click ``Next'' to continue.
+\item Enter the URI \url{https://github.com/ptgrogan/fss.git} and the other fields should auto-fill. Click ``Next'' to continue.
+\item Select the \texttt{master} branch and click ``Next'' to continue.
+\item Select the desired target directory and click ``Next'' to continue. The files will now be downloaded.
+\item Select ``Import using the New Project Wizard'' and click ``Finish'' to complete.
 \item Expand the ``Java'' folder, select ``Java Project'' and click ``Next'' to continue.
-\item Give the project a name, change other options (if desired, note: Java SE 7 is the minimum version required), and click ``Finish'' to download the source files.
+\item Give the project a name, set its directory to that chosen above, and click ``Finish'' to complete.
 \end{enumerate}
 \item Configure the FSS toolkit in Eclipse:
 \begin{enumerate}
-\item Select ``Project $>$ Properties'' from the Eclipse menu, select the ``Java Build Path'' item from the left-hand menu, and select the ``Libraries'' tab on the right.
-\item Click the ``Add JARs...'' button and select the following:
+\item Update the required submodules.
 \begin{enumerate}
-\item \texttt{lib/commons-math3-3.2/commons-math3-3.2.jar}
-\item \texttt{lib/jfreechart-1.0.17/jcommon-1.0.21.jar}
-\item \texttt{lib/jfreechart-1.0.17/jfreechart-1.0.17.jar}
-\item \texttt{lib/log4j-1.2.17/log4j-1.2.17.jar}
-\item \texttt{lib/ohla-0.6/ohla-0.6.jar}
-\item \texttt{lib/orekit-6.0/orekit-6.0.jar}
-\item \texttt{lib/portico-2.0.0/portico.jar}
-\item \texttt{lib/worldwind-2.0-857.1737/worldwind.jar}
+\item Open the Git Repositories view with ``Window $>$ Show View $>$ Other $>$ Git $>$ Git Repositories.''
+\item Expand the FSS project repository, right-click on ``Submodules,'' and select ``Update Submodule.''
+\item The operation should clone the \texttt{commons-math} and \texttt{orekit} repositories.
 \end{enumerate}
-\item Click ``OK'' to add the JARs to the project library.
-\item \textbf{Optionally} expand JAR files, select the Javadoc location item, click ``Edit...,'' and select the appropriate Javadoc file to provide documentation within the Eclipse IDE:
+\item Select ``Project $>$ Properties'' from the Eclipse menu, select the ``Java Build Path'' item from the left-hand menu and add the following source folders and JAR files:
 \begin{enumerate}
-\item Commons Math 3: Javadoc in archive, Workspace file: \\ \texttt{lib/commons-math3-3.2/commons-math3-3.2-javadoc.jar}
-\item JFreeChart: Javadoc in archive, Workspace file: \\ \texttt{lib/jfreechart-1.0.17/jfreechart-1.0.17-javadocs.zip}
-\item Log4J: Javadoc in archive, Workspace file: \\ \texttt{lib/log4j-1.2.17/log4j-1.2.17-apidocs.zip}
-\item Orekit: Javadoc in archive, Workspace file: \\ \texttt{lib/orekit-6.0/orekit-6.0-javadoc.jar}
-\item World Wind: Javadoc in archive, Workspace file: \\ \texttt{lib/worldwind-2.0-857.1737/worldwind-docs-daily-857.1737.zip}
+\item Source folders
+\begin{enumerate} 
+\item \texttt{src/examples/java}
+\item \texttt{src/examples/resources}
+\item \texttt{src/main/java}
+\item \texttt{src/tutorial/java}
+\item \texttt{src/tutorial/resources}
+\item \texttt{lib/commons-math/src/main/java}
+\item \texttt{lib/commons-math/src/main/resources}
+\item \texttt{lib/orekit/src/main/java}
+\item \texttt{lib/orekit/src/main/resources}
 \end{enumerate}
+\item JARs
+\begin{enumerate} 
+\item \texttt{lib/worldwind/worldwind-2.0.0/worldwind.jar}
+\item \texttt{lib/portico/portico-2.0.1/portico.jar}
+\item \texttt{lib/ohla/ohla-0.6.1/ohla.jar}
+\item \texttt{lib/jfreechart/jfreechart-1.0.19/lib/jfreechart-1.0.19.jar}
+\item \texttt{lib/jfreechart/jfreechart-1.0.19/lib/jcommon-1.0.23.jar}
+\end{enumerate}
+\end{enumerate}
+%\item \textbf{Optionally} expand JAR files, select the Javadoc location item, click ``Edit...,'' and select the appropriate Javadoc file to provide documentation within the Eclipse IDE:
+%\begin{enumerate}
+%\item Commons Math 3: Javadoc in archive, Workspace file: \\ \texttt{lib/commons-math3-3.2/commons-math3-3.2-javadoc.jar}
+%\item JFreeChart: Javadoc in archive, Workspace file: \\ \texttt{lib/jfreechart-1.0.17/jfreechart-1.0.17-javadocs.zip}
+%\item Log4J: Javadoc in archive, Workspace file: \\ \texttt{lib/log4j-1.2.17/log4j-1.2.17-apidocs.zip}
+%\item Orekit: Javadoc in archive, Workspace file: \\ \texttt{lib/orekit-6.0/orekit-6.0-javadoc.jar}
+%\item World Wind: Javadoc in archive, Workspace file: \\ \texttt{lib/worldwind-2.0-857.1737/worldwind-docs-daily-857.1737.zip}
+%\end{enumerate}
 \item Click ``OK'' to close the project properties. The project should re-build automatically and all errors should disappear.
 \end{enumerate}
 \item Test the example federates:
@@ -181,55 +222,49 @@ The OHLA RTI uses a centralized implementation where each federate uses a local 
 
 \begin{enumerate}
 \item Connect each participant to the network (wired or wireless).
-\item Select the desired CRC port (default 15000) by associated property in the \texttt{ohla-crc.properties} file and start the CRC program.
-\item Select the corresponding CRC host (default 127.0.0.1) and port (default 15000) by changing the associated properties in the \texttt{ohla-lrc.properties} file.
+\item The default CRC port is 15000. Start the CRC program (\texttt{OHLA\_CRC.java}). % Select the desired CRC port (default 15000) by associated property in the \texttt{ohla-crc.properties} file and start the CRC program.
+\item Select the corresponding CRC host (default localhost) and port (default 15000) by changing the associated properties in the \texttt{ohla-lrc.properties} file.
 \item Depending on security settings, software firewalls (i.e. Windows Firewall) may need to be disabled or have new rules added to allow TCP traffic on the desired port.
 \end{enumerate}
 
 \section{Toolkit Contents}
 
-The toolkit is presently stored in a Subversion repository hosted by the M.I.T. Scripts service. Its files and history is publicly-accessible at the URL:
+The toolkit is presently stored in a Subversion repository hosted by GitHub. Its files and history is publicly-accessible at the URL:
 \begin{center}
-\url{svn://ptgrogan.scripts.mit.edu/fss/}
+\url{https://github.com/ptgrogan/fss.git}
 \end{center}
-This repository is set to anonymous read access and authenticated write access. While anyone can download the files, only authorized developers can make changes. Future development may migrate to an open source repository service to more easily allow community contributions.
 
 The repository contains the following directory structure:
 \dirtree{%
-.1 svn://ptgrogan.scripts.mit.edu/fss/.
-.2 branches/.
-.2 tags/.
-.2 trunk/.
-.3 src/.
-.4 edu.mit.fss.
-.4 edu.mit.fss.event.
-.4 edu.mit.fss.examples.
-.4 edu.mit.fss.hla.
-.4 edu.mit.fss.tutorial.
-.4 resources.
-.3 doc/.
+.1 https://github.com/ptgrogan/fss.git.
+.2 master/.
+.3 src/main/java.
+.3 src/main/resources.
+.3 src/tutorial/java.
+.3 src/examples/java.
+.3 src/examples/resources.
+.3 src/guide/latex.
 .3 lib/.
-.3 lib-external/.
-.3 license.txt.
+.3 LICENSE.
+.3 README.md.
 }
-The root \texttt{trunk/} directory contains several configuration and data files. The \texttt{src/} directory contains the source code within the \texttt{edu.mit.fss} package structure and icons in the \texttt{resources} package. The \texttt{doc/} directory contains documentation including this user guide. The \texttt{lib/} and \texttt{lib-external/} directories contain redistributable third-party libraries. Finally, the \texttt{license.txt} file contains the standard 2-clause BSD license under which the toolkit is released.
+The root \texttt{master/} directory contains several configuration and data files. The \texttt{src/} directory contains the source code and other required resources for the main toolkit (\texttt{src/main/}), example applications (\texttt{src/examples/}), and tutorial files (\texttt{src/tutorial/}). The \texttt{lib/} directory contain redistributable third-party libraries. Finally, the \texttt{LICENSE} file contains the standard Apache version 2.0 License under which the toolkit is released.
 
 \subsection{Core Toolkit Interfaces}
 
 The core toolkit interfaces provide the top-level structure and require methods for Java object classes participating in a FSS simulation. The following files define the core interfaces to the FSS simulation toolkit:
 \dirtree{%
-.1 trunk/.
-.2 src/.
-.3 edu.mit.fss.
-.4 Element.java\DTcomment{Interface to an element with Cartesian coordinates}.
-.4 OrbitalElement.java\DTcomment{Interface to an element with Keplerian orbital elements}.
-.4 Receiver.java\DTcomment{Interface to a RCP receiver abstraction}.
-.4 ReferenceFrame.java\DTcomment{Enumeration of existing reference frames}.
-.4 Signal.java\DTcomment{Interface to a RCP signal abstraction}.
-.4 SimInteraction.java\DTcomment{Interface to a simulation interaction}.
-.4 SimObject.java\DTcomment{Interface to a simulation object}.
-.4 SurfaceElement.java\DTcomment{Interface to an element with geodetic coordinates}.
-.4 Transmitter.java\DTcomment{Interface to a RCP transmitter abstraction}.
+.1 src/main/java.
+.2 edu.mit.fss.
+.3 Element.java\DTcomment{Interface to an element with Cartesian coordinates}.
+.3 OrbitalElement.java\DTcomment{Interface to an element with Keplerian orbital elements}.
+.3 Receiver.java\DTcomment{Interface to a RCP receiver abstraction}.
+.3 ReferenceFrame.java\DTcomment{Enumeration of existing reference frames}.
+.3 Signal.java\DTcomment{Interface to a RCP signal abstraction}.
+.3 SimInteraction.java\DTcomment{Interface to a simulation interaction}.
+.3 SimObject.java\DTcomment{Interface to a simulation object}.
+.3 SurfaceElement.java\DTcomment{Interface to an element with geodetic coordinates}.
+.3 Transmitter.java\DTcomment{Interface to a RCP transmitter abstraction}.
 }
 Figure \ref{fig:coreInterfaceOCD} illustrates an object class diagram of the core interface classes. A few classes introduce external dependencies. First, the \texttt{Vector3D} data type used in the \texttt{Element} type is from the Apache Commons Math 3 library. Second, the \texttt{Frame} data type used in the \texttt{ReferenceFrame} enumeration is from the Orekit flight dynamics library.
 
@@ -312,20 +347,19 @@ Figure \ref{fig:coreInterfaceOCD} illustrates an object class diagram of the cor
 
 The HLA model implementations use the core interfaces to define objects compatible with the HLA runtime infrastructure (RTI). For example, a ``remote'' object in a federation will appear as a HLA model implementation, as will a copy of a ``local'' object to facilitate information exchange with the federation. The following classes implement the core interfaces using HLA data types:
 \dirtree{%
-.1 trunk/.
-.2 src/.
-.3 edu.mit.fss.hla.
-.4 FSScartesianVector.java\DTcomment{HLA implementation of \texttt{Vector3D} type}.
-.4 FSSelement.java\DTcomment{HLA implementation of \texttt{Element} interface}.
-.4 FSSorbitalElement.java\DTcomment{HLA implementation of \texttt{OrbitalElement} interface}.
-.4 FSSreceiver.java\DTcomment{HLA implementation of \texttt{Receiver} interface}.
-.4 FSSreferenceFrame.java\DTcomment{HLA implementation of \texttt{ReferenceFrame} type}.
-.4 FSSsignal.java\DTcomment{HLA implementation of \texttt{Signal} interface}.
-.4 FSSsurfaceElement.java\DTcomment{HLA implementation of \texttt{SurfaceElement} interface}.
-.4 FSStransmitter.java\DTcomment{HLA implementation of \texttt{Transmitter} interface}.
-.4 HLAinteraction.java\DTcomment{HLA helper class for managing interactions}.
-.4 HLAobject.java\DTcomment{HLA helper class for managing objects}.
-.4 OHLA\_CRC.java\DTcomment{Main method to start OHLA central RTI component}.
+.1 src/main/java.
+.2 edu.mit.fss.hla.
+.3 FSScartesianVector.java\DTcomment{HLA implementation of \texttt{Vector3D} type}.
+.3 FSSelement.java\DTcomment{HLA implementation of \texttt{Element} interface}.
+.3 FSSorbitalElement.java\DTcomment{HLA implementation of \texttt{OrbitalElement} interface}.
+.3 FSSreceiver.java\DTcomment{HLA implementation of \texttt{Receiver} interface}.
+.3 FSSreferenceFrame.java\DTcomment{HLA implementation of \texttt{ReferenceFrame} type}.
+.3 FSSsignal.java\DTcomment{HLA implementation of \texttt{Signal} interface}.
+.3 FSSsurfaceElement.java\DTcomment{HLA implementation of \texttt{SurfaceElement} interface}.
+.3 FSStransmitter.java\DTcomment{HLA implementation of \texttt{Transmitter} interface}.
+.3 HLAinteraction.java\DTcomment{HLA helper class for managing interactions}.
+.3 HLAobject.java\DTcomment{HLA helper class for managing objects}.
+.3 OHLA\_CRC.java\DTcomment{Main method to start OHLA central RTI component}.
 }
 The helper class implementations \texttt{HLAinteraction} and \texttt{HLAobject} work with the federate ambassador to send and receive updates automatically from the federation. Figure \ref{fig:hlaImplementationOCD} illustrates a simplified object class diagram of the HLA model implementation classes.
 
@@ -422,26 +456,28 @@ The helper class implementations \texttt{HLAinteraction} and \texttt{HLAobject} 
 
 The toolkit execution classes help run a federated simulation. They include both the local simulator (within a \texttt{Federate} object), an interface to the federation (via the \texttt{FSSambassador} class), and events and listeners to pass information. The following classes provide execution capabilities for the toolkit:
 \dirtree{%
-.1 trunk/.
-.2 src/.
-.3 edu.mit.fss.
-.4 DefaultFederate.java\DTcomment{Default implementation of \texttt{Federate}}.
-.4 Federate.java\DTcomment{Interface to a federate application}.
-.3 edu.mit.fss.event.
-.4 ConnectionEvent.java\DTcomment{Notifies a connection was changed}.
-.4 ConnectionListener.java\DTcomment{Observer of connection events}.
-.4 ExecutionControlEvent.java\DTcomment{Notifies an execution control action occurred}.
-.4 ExecutionControlListener.java\DTcomment{Observer of execution control events}.
-.4 ObjectChangeEvent.java\DTcomment{Notifies an object or interaction changed}.
-.4 ObjectChangeListener.java\DTcomment{Observer of object change events}.
-.4 SimulationTimeEvent.java\DTcomment{Notifies the simulation time changed}.
-.4 SimulationTimeListener.java\DTcomment{Observer of simulation time events}.
-.3 edu.mit.fss.hla.
-.4 FederationConnection.java\DTcomment{Stores state of connection to HLA federation}.
-.4 FSSambassador.java\DTcomment{Interface to a FSS federate ambassador}.
-.4 DefaultAmbassador.java\DTcomment{Default implementation of \texttt{FSSambassador}}.
-.2 connection.data\DTcomment{Saved HLA federation connection settings}.
-.2 fss.xml\DTcomment{Federation object model (FOM) definition}.
+.1 src/main/java.
+.2 edu.mit.fss.
+.3 DefaultFederate.java\DTcomment{Default implementation of \texttt{Federate}}.
+.3 Federate.java\DTcomment{Interface to a federate application}.
+.2 edu.mit.fss.event.
+.3 ConnectionEvent.java\DTcomment{Notifies a connection was changed}.
+.3 ConnectionListener.java\DTcomment{Observer of connection events}.
+.3 ExecutionControlEvent.java\DTcomment{Notifies an execution control action occurred}.
+.3 ExecutionControlListener.java\DTcomment{Observer of execution control events}.
+.3 ObjectChangeEvent.java\DTcomment{Notifies an object or interaction changed}.
+.3 ObjectChangeListener.java\DTcomment{Observer of object change events}.
+.3 SimulationTimeEvent.java\DTcomment{Notifies the simulation time changed}.
+.3 SimulationTimeListener.java\DTcomment{Observer of simulation time events}.
+.2 edu.mit.fss.hla.
+.3 FederationConnection.java\DTcomment{Stores state of connection to HLA federation}.
+.3 FSSambassador.java\DTcomment{Interface to a FSS federate ambassador}.
+.3 DefaultAmbassador.java\DTcomment{Default implementation of \texttt{FSSambassador}}.
+.1 src/main/resources.
+.2 edu.mit.fss.hla.
+.3 ohla-lrc.properties\DTcomment{Connection properties for the OHLA RTI}.
+.3 fss.xml\DTcomment{Federation object model (FOM) definition}.
+.2 orekit-data.zip\DTcomment{Physical data required for Orekit}.
 }
 In particular, the \texttt{Federate} interface defines the simulator actions. The default implementation \texttt{DefaultFederate} composes local \texttt{SimObject} objects and a \texttt{FSSambassador} to coordinate data exchange with the federation. The federation interface itself is defined via the \texttt{fss.xml} federation object model (FOM) file and default connection settings are saved in the \texttt{connection.data} file. Figure \ref{fig:toolkitExecutionOCD} illustrates a simplified object class diagram of the toolkit execution classes.
 
@@ -516,20 +552,22 @@ A number of listener interfaces and associated events provide observer capabilit
 The toolkit includes six example federates based on the case study in \textcite{grogan13}. Each federate includes a graphical user interface (GUI) for user interaction using common GUI components within the \texttt{edu.mit.fss.examples.gui} package. Five federates for FSS member simulation use customized data models within the \texttt{edu.mit.fss.examples.member} package and specialized GUI components within the \texttt{edu.mit.fss.examples.member.gui} package. A visualization federate uses the NASA World Wind application and specialized GUI components within the \texttt{edu.mit.fss.examples.visual.gui} package.
 
 \dirtree{%
-.1 trunk/.
-.2 src/.
-.3 edu.mit.fss.examples.
-.4 CosmoSkyMed1.java\DTcomment{CosmoSkyMED-1 FSS member federate example}.
-.4 ISSNode.java\DTcomment{ISS-Node FSS member federate example}.
-.4 SaudiComSat.java\DTcomment{SaudiComSat FSS member federate example}.
-.4 TDRSS.java\DTcomment{TDRSS FSS member federate example}.
-.4 TerraSarX.java\DTcomment{TerraSAR-X FSS member federate example}.
-.4 Visualization.java\DTcomment{Visualization federate example}.
-.3 edu.mit.fss.examples.gui\DTcomment{Common GUI components for the examples}.
-.3 edu.mit.fss.examples.member\DTcomment{Model components for the FSS member example}.
-.3 edu.mit.fss.examples.member.gui\DTcomment{GUI components for the FSS member example}.
-.3 edu.mit.fss.examples.visual.gui\DTcomment{GUI components for the visualization example}.
-.2 data.tle\DTcomment{Two line element data for example spacecraft}.
+.1 src/examples/java.
+.2 edu.mit.fss.examples.
+.3 CosmoSkyMed1.java\DTcomment{CosmoSkyMED-1 FSS member federate example}.
+.3 ISSNode.java\DTcomment{ISS-Node FSS member federate example}.
+.3 SaudiComSat.java\DTcomment{SaudiComSat FSS member federate example}.
+.3 TDRSS.java\DTcomment{TDRSS FSS member federate example}.
+.3 TerraSarX.java\DTcomment{TerraSAR-X FSS member federate example}.
+.3 Visualization.java\DTcomment{Visualization federate example}.
+.2 edu.mit.fss.examples.gui\DTcomment{Common GUI components for the examples}.
+.2 edu.mit.fss.examples.member\DTcomment{Model components for the FSS member example}.
+.2 edu.mit.fss.examples.member.gui\DTcomment{GUI components for the FSS member example}.
+.2 edu.mit.fss.examples.visual.gui\DTcomment{GUI components for the visualization example}.
+.1 src/examples/resources.
+.2 edu.mit.fss.examples.
+.3 data.tle\DTcomment{Two line element data for example spacecraft}.
+.2 images\DTcomment{Directory for images used in the GUI}.
 }
 
 \begin{figure}[p]
@@ -551,69 +589,53 @@ The toolkit includes six example federates based on the case study in \textcite{
 The toolkit includes four short tutorials to introduce the approach for developing federates
 
 \dirtree{%
-.1 trunk/.
-.2 src/.
-.3 edu.mit.fss.tutorial.part1.
-.4 ClockFederate.java\DTcomment{An example federate to simulate a clock object}.
-.4 TrivialClock.java\DTcomment{A simple simulation object to keep track of time}.
-.3 edu.mit.fss.tutorial.part2.
-.4 MobileElement.java\DTcomment{A simple \texttt{SurfaceElement} implementation}.
-.4 OfflineTutorialFederate.java\DTcomment{An example federate to simulate a mobile element}.
-.3 edu.mit.fss.tutorial.part3.
-.4 Element1.java\DTcomment{Runs a federate for the ``Element 1'' mobile element}.
-.4 Element2.java\DTcomment{Runs a federate for the ``Element 2'' mobile element}.
-.4 OnlineTutorialFederate.java\DTcomment{An example federate to simulate a mobile element}.
-.3 edu.mit.fss.tutorial.part4.
-.4 ControlPanel.java\DTcomment{A component to display and control a mobile element}.
-.4 ElementGUI.java\DTcomment{Runs a federate for a mobile element with a GUI}.
+.1 src/tutorial/java.
+.2 edu.mit.fss.tutorial.part1.
+.3 ClockFederate.java\DTcomment{An example federate to simulate a clock object}.
+.3 TrivialClock.java\DTcomment{A simple simulation object to keep track of time}.
+.2 edu.mit.fss.tutorial.part2.
+.3 MobileElement.java\DTcomment{A simple \texttt{SurfaceElement} implementation}.
+.3 OfflineTutorialFederate.java\DTcomment{An example federate to simulate a mobile element}.
+.2 edu.mit.fss.tutorial.part3.
+.3 Element1.java\DTcomment{Runs a federate for the ``Element 1'' mobile element}.
+.3 Element2.java\DTcomment{Runs a federate for the ``Element 2'' mobile element}.
+.3 OnlineTutorialFederate.java\DTcomment{An example federate to simulate a mobile element}.
+.2 edu.mit.fss.tutorial.part4.
+.3 ControlPanel.java\DTcomment{A component to display and control a mobile element}.
+.3 ElementGUI.java\DTcomment{Runs a federate for a mobile element with a GUI}.
 }
 
 \subsection{Third Party Libraries}
 
 The following third party libraries provide functionality for the toolkit:
 \dirtree{%
-.1 trunk/.
-.2 lib/.
-.3 commons-math3-3.2/\DTcomment{Apache Commons Math 3 (Orekit dependency)}.
-.3 jfreechart-1.0.17/\DTcomment{JFreeChart and JCommon for user interface charts}.
-.3 log4j-1.2.17/\DTcomment{Java debugging and error logging}.
-.3 ohla-0.6/\DTcomment{Open HLA runtime infrastructure}.
-.3 orekit-6.0/\DTcomment{Orekit spacecraft flight dynamics}.
-.3 portico-2.0.0/\DTcomment{Portico HLA runtime infrastructure}.
-.3 worldwind-2.0-857.1737/\DTcomment{World Wind for Earth visualization}.
-.2 lib-external/.
-.3 gdal/\DTcomment{Geospatial Data Abstraction Library (World Wind dependency)}.
-.2 ohla-crc.properties\DTcomment{Configuration properties for OHLA central RTI component}.
-.2 ohla-lrc.properties\DTcomment{Configuration properties for OHLA local RTI component}.
-.2 orekit-data.zip\DTcomment{Orekit default physical data package}.
-.2 RTI.rid\DTcomment{Portico RTI Initialization Data (RID) file}.
+.1 lib/.
+.2 commons-math/\DTcomment{Apache Commons Math 3 (Orekit dependency)}.
+.2 jfreechart/\DTcomment{JFreeChart and JCommon for user interface charts}.
+.2 ohla/\DTcomment{Open HLA runtime infrastructure}.
+.2 orekit/\DTcomment{Orekit spacecraft flight dynamics}.
+.2 portico/\DTcomment{Portico HLA runtime infrastructure}.
+.2 worldwind/\DTcomment{World Wind for Earth visualization}.
+%.1 lib-external/.
+%.2 gdal/\DTcomment{Geospatial Data Abstraction Library (World Wind dependency)}.
+%.1 ohla-crc.properties\DTcomment{Configuration properties for OHLA central RTI component}.
+%.1 ohla-lrc.properties\DTcomment{Configuration properties for OHLA local RTI component}.
+%.1 orekit-data.zip\DTcomment{Orekit default physical data package}.
+%.1 RTI.rid\DTcomment{Portico RTI Initialization Data (RID) file}.
 }
 
-These libraries include two HLA runtime infrastructure (RTI) implementations. The Portico library uses UDP multicast communication which only works on local area networks. Additional configuration settings for Portico are contained within the \texttt{RTI.rid} file. The OHLA library uses TCP communication which is generally allowed over wide area networks. Additional configuration settings for OHLA are contained within the \texttt{ohla-crc.properties} and \texttt{ohla-lrc.properties} files.
-
-The Orekit spacecraft flight dynamics library is used to define reference frames and to perform orbital propagation within the example federates. It requires a physical data package for which this toolkit uses the default file, \texttt{orekit-data.zip}.
-
-The JFreeChart library is used within the example federates for charting and plotting capabilities.
-
-The World Wind version distributed in this toolkit is a nightly-build dating to October 2013. It should be replaced with version 2.0 when officially released.
+These libraries include two HLA runtime infrastructure (RTI) implementations. Portico uses UDP multicast communication which only works on local area networks. % Additional configuration settings for Portico are contained within the \texttt{RTI.rid} file. 
+Open HLA uses TCP communication which is generally allowed over wide area networks. %Additional configuration settings for OHLA are contained within the \texttt{ohla-crc.properties} and \texttt{ohla-lrc.properties} files.
+Orekit spacecraft flight dynamics library defines reference frames and performs orbital propagation within the example federates. %It requires a physical data package for which this toolkit uses the default file, \texttt{orekit-data.zip}.
+JFreeChart is used within the example federates for charting and plotting capabilities. Finally, World Wind provides Earth visualization in the examples. % The World Wind version distributed in this toolkit is a nightly-build dating to October 2013. It should be replaced with version 2.0 when officially released.
 
 \section{Quick Start Tutorials}
 
-This quick start tutorial develops new federates from the core FSS interfaces. It is intended to illustrate the concepts used to implement the example federates in the previous section through several successive parts.
-
-Part 1 demonstrates how new objects can be defined and used in a time-stepped simulation. It implements a trivial clock simulation object and uses it to track time advancement in an offline simulation.
-
-Part 2 demonstrates how the FSS core interfaces can be used to create a custom FSS object. It implements a mobile surface element with controllable velocity and uses it in an offline simulation.
-
-Part 3 demonstrates an online distributed simulation using two instances of the mobile surface element implementation from Part 2. Two federates join a federated simulation and output computed distances from each other's element.
-
-Part 4 develops a graphical user interface (GUI) to control the mobile surface elements from Part 3. The GUI allows velocity to be changed during a simulation using arrow key bindings.
-
-Finally, Part 5 shows how to switch between using the Portico and OHLA RTI implementations.
+This quick start tutorial develops new federates from the core FSS interfaces. It is intended to illustrate the concepts used to implement the example federates in the previous section through several successive parts. Part 1 demonstrates how new objects can be defined and used in a time-stepped simulation. It implements a trivial clock simulation object and uses it to track time advancement in an offline simulation. Part 2 demonstrates how the FSS core interfaces can be used to create a custom FSS object. It implements a mobile surface element with controllable velocity and uses it in an offline simulation. Part 3 demonstrates an online distributed simulation using two instances of the mobile surface element implementation from Part 2. Two federates join a federated simulation and output computed distances from each other's element. Part 4 develops a graphical user interface (GUI) to control the mobile surface elements from Part 3. The GUI allows velocity to be changed during a simulation using arrow key bindings. Finally, Part 5 shows how to switch between using the Portico and OHLA RTI implementations.
 
 \subsection{Part 1: Implementing a Simulation Object}
 
-The first tutorial focuses on defining a very simple simulation object---a clock which only keeps track of time---and using it in an offline simulation. First, we define the \texttt{TrivialClock} object class implementing the \texttt{SimObject} interface described in Box \ref{lst:trivialClock}. It contains data members for its name and time, and a temporary variable to hold the next time between \texttt{tick} and \texttt{tock} method calls. We also include a \texttt{getDate()} method to convert the integer-based time in milliseconds to a Java \texttt{Date} object.
+The first tutorial focuses on defining a very simple simulation object---a clock which only keeps track of time---and using it in an offline simulation. First, we define the \texttt{TrivialClock} object class implementing the \texttt{SimObject} interface described in Box \ref{lst:trivialClock}. It contains data members for its name and time, and a temporary variable to hold the next time between \texttt{tick} and \texttt{tock} method calls. We also include a \texttt{getDate()} method to convert integer-based millisecond time to a Java \texttt{Date} object.
 
 \begin{Code}
 \begin{lstlisting}[caption={TrivialClock object class},label={lst:trivialClock}]
@@ -1222,7 +1244,8 @@ This section describes how to switch between Portico and OHLA RTIs for a federat
 \begin{enumerate}
 \item Configure and start the OHLA Central RTI Component (CRC).
 \begin{enumerate}
-\item Configure the \texttt{ohla-crc.properties} file: choose the desired port number (default 15000).
+\item The default port is currently hard-coded as 15000.
+%\item Configure the \texttt{ohla-crc.properties} file: choose the desired port number (default 15000).
 \item Configure the firewall: add rules (if necessary) to allow inbound and outbound TCP traffic on the desired port.
 \item Start the CRC program: run the main method in \texttt{edu.mit.fss.hla.OHLA\_CRC.java}.
 \end{enumerate}
