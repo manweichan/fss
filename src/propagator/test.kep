@@ -1,0 +1,6 @@
+Name,			Date (ms),		Semi-major Axis (m),	Eccentricity, 	Inclination (deg),	Perigee Argument (deg),	Right Ascension of Ascending Node (deg), 	Anomaly (deg), 	Anomaly Type (ECCENTRIC|MEAN|TRUE)
+COSMO-SKYMED 1, 1403845120377,	622500,					0.0000715, 		97.9,				0,						334,										0,				MEAN
+GEOEYE 1, 		1403845120377,	678500,					0.001064056, 	98.1,				0,						260,										0,				MEAN
+PLEIADES 1A, 	1403845120377,	698000,					0.000141, 		98.2,				0,						235,										0,				MEAN
+PROBA V, 		1403845120377,	816500,					0.000487, 		98.73,				0,						240,										0,				MEAN
+RADARSAT-2, 	1403845120377,	792000,					0.000140, 		98.6,				0,						167,										0,				MEAN

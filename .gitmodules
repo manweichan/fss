@@ -4,3 +4,6 @@
 [submodule "lib/orekit"]
 	path = lib/orekit
 	url = https://www.orekit.org/git/orekit-main.git
+[submodule "lib/commons-cli"]
+	path = lib/commons-cli
+	url = https://github.com/apache/commons-cli.git
