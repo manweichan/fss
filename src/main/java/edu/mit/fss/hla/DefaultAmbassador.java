@@ -102,6 +102,7 @@ import edu.mit.fss.event.ObjectChangeListener;
 public class DefaultAmbassador extends NullFederateAmbassador implements FSSambassador {
 	public static final String OHLA_RTI = "OHLA";
 	public static final String PORTICO_RTI = "portico";
+	public static final String PITCH_RTI = "pRTI 1516";
 	
 	protected static Logger logger = Logger.getLogger(DefaultAmbassador.class);
 	private final EventListenerList listenerList = new EventListenerList();
@@ -235,7 +236,7 @@ public class DefaultAmbassador extends NullFederateAmbassador implements FSSamba
 					}
 				}
 			}, 0, 100);
-		} else if(rtiName.equals(PORTICO_RTI)) {
+		} else if(rtiName.equals(PORTICO_RTI) || rtiName.equals(PITCH_RTI)) {
 			try {
 				rtiAmbassador.connect(this, 
 						CallbackModel.HLA_IMMEDIATE);
