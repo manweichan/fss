@@ -15,9 +15,6 @@
  */
 package edu.mit.fss.examples;
 
-import hla.rti1516e.exceptions.RTIexception;
-import hla.rti1516e.exceptions.RTIinternalError;
-
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URISyntaxException;
@@ -32,13 +29,15 @@ import org.orekit.errors.OrekitException;
 import edu.mit.fss.DefaultFederate;
 import edu.mit.fss.examples.visual.gui.VisualizationFrame;
 import edu.mit.fss.hla.DefaultAmbassador;
+import hla.rti1516e.exceptions.RTIexception;
+import hla.rti1516e.exceptions.RTIinternalError;
 
 /**
  * The sample visualization federate which uses the NASA World Wind 
  * application to display simulation objects.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class VisualizationFederate extends DefaultFederate {
@@ -103,6 +102,6 @@ public class VisualizationFederate extends DefaultFederate {
 	 * @throws RTIinternalError the RTI exception
 	 */
 	public VisualizationFederate() throws RTIexception {
-		super(new DefaultAmbassador(DefaultAmbassador.PORTICO_RTI));
+		super(new DefaultAmbassador(DefaultAmbassador.PITCH_RTI));
 	}
 }

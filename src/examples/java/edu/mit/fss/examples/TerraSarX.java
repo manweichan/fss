@@ -15,9 +15,6 @@
  */
 package edu.mit.fss.examples;
 
-import hla.rti1516e.exceptions.RTIexception;
-import hla.rti1516e.exceptions.RTIinternalError;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -39,13 +36,15 @@ import edu.mit.fss.examples.member.SpaceSystem;
 import edu.mit.fss.examples.member.gui.MemberFrame;
 import edu.mit.fss.examples.member.gui.SpaceSystemPanel;
 import edu.mit.fss.hla.DefaultAmbassador;
+import hla.rti1516e.exceptions.RTIexception;
+import hla.rti1516e.exceptions.RTIinternalError;
 
 /**
  * The sample TerraSAR-X federate includes a {@link SpaceSystem} object
  * using the orbital parameters of the the TerraSAR-X spacecraft.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class TerraSarX extends DefaultFederate {

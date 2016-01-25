@@ -15,8 +15,6 @@
  */
 package edu.mit.fss.tutorial.part3;
 
-import hla.rti1516e.exceptions.RTIexception;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -30,13 +28,14 @@ import edu.mit.fss.event.ObjectChangeListener;
 import edu.mit.fss.event.SimulationTimeEvent;
 import edu.mit.fss.event.SimulationTimeListener;
 import edu.mit.fss.tutorial.part2.MobileElement;
+import hla.rti1516e.exceptions.RTIexception;
 
 /**
  * A federate class used to execute a single mobile element object 
  * in an online federation.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class OnlineTutorialFederate extends DefaultFederate {

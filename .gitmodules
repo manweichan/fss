@@ -1,9 +1,0 @@
-[submodule "lib/commons-math"]
-	path = lib/commons-math
-	url = https://github.com/apache/commons-math.git
-[submodule "lib/orekit"]
-	path = lib/orekit
-	url = https://www.orekit.org/git/orekit-main.git
-[submodule "lib/log4j"]
-	path = lib/log4j
-	url = https://github.com/apache/log4j.git

@@ -19,8 +19,8 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import edu.mit.fss.Element;
-import edu.mit.fss.Transmitter;
 import edu.mit.fss.SimObject;
+import edu.mit.fss.Transmitter;
 
 /**
  * A default implementation of the {@link Transmitter} interface which 
@@ -30,7 +30,7 @@ import edu.mit.fss.SimObject;
  * ("active").
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class DefaultTransmitter implements Transmitter, SimObject {

@@ -40,8 +40,8 @@ import javax.swing.table.AbstractTableModel;
 import org.apache.log4j.Logger;
 
 import edu.mit.fss.Federate;
-import edu.mit.fss.Transmitter;
 import edu.mit.fss.Signal;
+import edu.mit.fss.Transmitter;
 import edu.mit.fss.event.ObjectChangeEvent;
 import edu.mit.fss.event.ObjectChangeListener;
 import edu.mit.fss.examples.member.DefaultSignal;
@@ -55,7 +55,7 @@ import edu.mit.fss.examples.member.DefaultTransmitter;
  * inactive states and a table of signals sent.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class TransmitterPanel extends JPanel implements ObjectChangeListener {

@@ -15,8 +15,6 @@
  */
 package edu.mit.fss.tutorial.part1;
 
-import hla.rti1516e.exceptions.RTIexception;
-
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -24,12 +22,13 @@ import org.apache.log4j.Logger;
 import edu.mit.fss.DefaultFederate;
 import edu.mit.fss.event.SimulationTimeEvent;
 import edu.mit.fss.event.SimulationTimeListener;
+import hla.rti1516e.exceptions.RTIexception;
 
 /**
  * A federate class used to execute a single trivial clock object.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class ClockFederate extends DefaultFederate {

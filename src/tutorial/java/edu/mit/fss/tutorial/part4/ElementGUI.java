@@ -15,8 +15,6 @@
  */
 package edu.mit.fss.tutorial.part4;
 
-import hla.rti1516e.exceptions.RTIexception;
-
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.lang.reflect.InvocationTargetException;
@@ -32,13 +30,14 @@ import org.apache.log4j.Logger;
 
 import edu.mit.fss.tutorial.part2.MobileElement;
 import edu.mit.fss.tutorial.part3.OnlineTutorialFederate;
+import hla.rti1516e.exceptions.RTIexception;
 
 /**
  * An abstract class which contains the main method to run an 
  * OnlineTutorialFederate with a MobileElement object instance.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public abstract class ElementGUI {

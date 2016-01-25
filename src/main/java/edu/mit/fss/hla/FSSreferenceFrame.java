@@ -15,20 +15,20 @@
  */
 package edu.mit.fss.hla;
 
+import edu.mit.fss.ReferenceFrame;
 import hla.rti1516e.encoding.ByteWrapper;
 import hla.rti1516e.encoding.DataElement;
 import hla.rti1516e.encoding.DecoderException;
 import hla.rti1516e.encoding.EncoderException;
 import hla.rti1516e.encoding.EncoderFactory;
 import hla.rti1516e.encoding.HLAinteger32BE;
-import edu.mit.fss.ReferenceFrame;
 
 /**
  * FSSreferenceFrame implements the ReferenceFrame FOM data element, 
  * corresponding to the {@link ReferenceFrame} implementation.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class FSSreferenceFrame implements DataElement {

@@ -34,8 +34,8 @@ import edu.mit.fss.event.ExecutionControlListener;
 import edu.mit.fss.event.ObjectChangeListener;
 import edu.mit.fss.event.SimulationTimeEvent;
 import edu.mit.fss.event.SimulationTimeListener;
-import edu.mit.fss.hla.FSSambassador;
 import edu.mit.fss.hla.DefaultAmbassador;
+import edu.mit.fss.hla.FSSambassador;
 import edu.mit.fss.hla.FederationConnection;
 
 /**
@@ -50,7 +50,7 @@ import edu.mit.fss.hla.FederationConnection;
  * {@link #exit()}.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class DefaultFederate implements Federate {	

@@ -30,16 +30,16 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import edu.mit.fss.Element;
-import edu.mit.fss.Transmitter;
 import edu.mit.fss.Signal;
 import edu.mit.fss.SimInteraction;
+import edu.mit.fss.Transmitter;
 
 /**
  * FSSsignal is the HLA interaction class implementing the {@link Signal} 
  * interface for communication with the RTI.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class FSSsignal extends HLAinteraction implements Signal {

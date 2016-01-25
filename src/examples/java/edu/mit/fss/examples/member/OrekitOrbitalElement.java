@@ -52,7 +52,7 @@ import edu.mit.fss.SurfaceElement;
  * the Orekit library for state propagation and geometric calculations.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class OrekitOrbitalElement implements OrbitalElement, SimObject {
@@ -93,19 +93,19 @@ public class OrekitOrbitalElement implements OrbitalElement, SimObject {
 		earth = new OneAxisEllipsoid(
 				Constants.WGS84_EARTH_EQUATORIAL_RADIUS, 
 				Constants.WGS84_EARTH_FLATTENING, 
-				FramesFactory.getITRF2008());
+				FramesFactory.getITRF(org.orekit.utils.IERSConventions.IERS_2010, false));
 		
 		// create a total eclipse detector (Sun occulted by Earth, umbra)
 		totalEclipseDetector = new EclipseDetector(
 				CelestialBodyFactory.getSun(), 696000000.,
 				CelestialBodyFactory.getEarth(), 
-				Constants.WGS84_EARTH_EQUATORIAL_RADIUS, true);
+				Constants.WGS84_EARTH_EQUATORIAL_RADIUS).withUmbra();
 		
 		// create a partial eclipse detector (Sun occulted by Earth, penumbra)
 		partialEclipseDetector = new EclipseDetector(
 				CelestialBodyFactory.getSun(), 696000000.,
 				CelestialBodyFactory.getEarth(), 
-				Constants.WGS84_EARTH_EQUATORIAL_RADIUS, false);
+				Constants.WGS84_EARTH_EQUATORIAL_RADIUS).withPenumbra();
 	}
 
 	/**

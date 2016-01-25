@@ -23,7 +23,7 @@ import org.orekit.frames.FramesFactory;
  * An enumeration of known reference frames.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public enum ReferenceFrame {
@@ -60,10 +60,10 @@ public enum ReferenceFrame {
 		if(frame.equals(FramesFactory.getEME2000())) {
 			return EME2000;
 		}
-		if(frame.equals(FramesFactory.getITRF2008(true))) {
+		if(frame.equals(FramesFactory.getITRF(org.orekit.utils.IERSConventions.IERS_2010, true))) {
 			return ITRF2008;
 		}
-		if(frame.equals(FramesFactory.getITRF2008(false))) {
+		if(frame.equals(FramesFactory.getITRF(org.orekit.utils.IERSConventions.IERS_2010, false))) {
 			return ITRF2008_TE;
 		}
 		if(frame.equals(FramesFactory.getTEME())) {
@@ -119,8 +119,8 @@ public enum ReferenceFrame {
 		switch(this) {
 		case UNKNOWN: return null;
 		case EME2000: return FramesFactory.getEME2000();
-		case ITRF2008: return FramesFactory.getITRF2008(true);
-		case ITRF2008_TE: return FramesFactory.getITRF2008(false);
+		case ITRF2008: return FramesFactory.getITRF(org.orekit.utils.IERSConventions.IERS_2010, true);
+		case ITRF2008_TE: return FramesFactory.getITRF(org.orekit.utils.IERSConventions.IERS_2010, false);
 		case TEME: return FramesFactory.getTEME();
 		default: return null; // frame can not be determined
 		}

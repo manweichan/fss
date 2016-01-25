@@ -16,8 +16,8 @@
 package edu.mit.fss.examples.member;
 
 import edu.mit.fss.Element;
-import edu.mit.fss.Transmitter;
 import edu.mit.fss.Signal;
+import edu.mit.fss.Transmitter;
 
 /**
  * Extends the {@link DefaultReceiver} class for an 
@@ -25,7 +25,7 @@ import edu.mit.fss.Signal;
  * range governing signal reception from transmitters.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class SpaceReceiver extends DefaultReceiver {

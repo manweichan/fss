@@ -15,21 +15,20 @@
  */
 package edu.mit.fss.tutorial.part3;
 
-import hla.rti1516e.exceptions.RTIexception;
-
 import org.apache.commons.math3.geometry.euclidean.threed.Vector3D;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import edu.mit.fss.tutorial.part2.MobileElement;
+import hla.rti1516e.exceptions.RTIexception;
 
 /**
  * An abstract class which contains the main method to run an 
  * OnlineTutorialFederate with the "MegaDrill 2" object instance.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public abstract class Element2 {

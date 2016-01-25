@@ -15,21 +15,6 @@
  */
 package edu.mit.fss.examples.visual.gui;
 
-import edu.mit.fss.OrbitalElement;
-import edu.mit.fss.SurfaceElement;
-import gov.nasa.worldwind.WorldWind;
-import gov.nasa.worldwind.geom.Position;
-import gov.nasa.worldwind.render.BasicShapeAttributes;
-import gov.nasa.worldwind.render.Ellipsoid;
-import gov.nasa.worldwind.render.Material;
-import gov.nasa.worldwind.render.ShapeAttributes;
-import gov.nasa.worldwind.render.SurfaceCircle;
-import gov.nasa.worldwind.render.markers.BasicMarker;
-import gov.nasa.worldwind.render.markers.BasicMarkerAttributes;
-import gov.nasa.worldwind.render.markers.BasicMarkerShape;
-import gov.nasa.worldwind.render.markers.Marker;
-import gov.nasa.worldwind.render.markers.MarkerAttributes;
-
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -54,6 +39,21 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 
+import edu.mit.fss.OrbitalElement;
+import edu.mit.fss.SurfaceElement;
+import gov.nasa.worldwind.WorldWind;
+import gov.nasa.worldwind.geom.Position;
+import gov.nasa.worldwind.render.BasicShapeAttributes;
+import gov.nasa.worldwind.render.Ellipsoid;
+import gov.nasa.worldwind.render.Material;
+import gov.nasa.worldwind.render.ShapeAttributes;
+import gov.nasa.worldwind.render.SurfaceCircle;
+import gov.nasa.worldwind.render.markers.BasicMarker;
+import gov.nasa.worldwind.render.markers.BasicMarkerAttributes;
+import gov.nasa.worldwind.render.markers.BasicMarkerShape;
+import gov.nasa.worldwind.render.markers.Marker;
+import gov.nasa.worldwind.render.markers.MarkerAttributes;
+
 /**
  * A graphical user interface component to set options in 
  * the {@link WorldWindVisualization}. This class also stores the mutable
@@ -61,7 +61,7 @@ import javax.swing.table.TableCellRenderer;
  * component.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class OptionsPanel extends JSplitPane {

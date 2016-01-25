@@ -20,9 +20,9 @@ import java.util.HashSet;
 
 import edu.mit.fss.Element;
 import edu.mit.fss.Receiver;
-import edu.mit.fss.Transmitter;
 import edu.mit.fss.Signal;
 import edu.mit.fss.SimObject;
+import edu.mit.fss.Transmitter;
 
 /**
  * A default implementation of the {@link Receiver} interface which 
@@ -32,7 +32,7 @@ import edu.mit.fss.SimObject;
  * ("active").
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public abstract class DefaultReceiver implements Receiver, SimObject {

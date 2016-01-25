@@ -15,8 +15,6 @@
  */
 package edu.mit.fss.examples;
 
-import hla.rti1516e.exceptions.RTIexception;
-
 import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.File;
@@ -48,13 +46,14 @@ import edu.mit.fss.examples.member.gui.MultiComponentPanel;
 import edu.mit.fss.examples.member.gui.SpaceSystemPanel;
 import edu.mit.fss.examples.member.gui.SurfaceSystemPanel;
 import edu.mit.fss.hla.DefaultAmbassador;
+import hla.rti1516e.exceptions.RTIexception;
 
 /**
  * The sample TDRSS federate includes 8 {@link SpaceSystem} objects
  * using the orbital parameters of the TDRSS 3, 5-11 spacecraft.
  * 
  * @author Paul T. Grogan, ptgrogan@mit.edu
- * @version 0.2.0
+ * @version 0.2.1
  * @since 0.1.0
  */
 public class TDRSSFederate extends DefaultFederate {
